@@ -7,29 +7,33 @@
 
 ## ALGORITHM
 
-Step 1: Launch Two EC2 Instances in Different Availability Zones
+## Step 1:Launch Two EC2 Instances in Different Availability Zones
+
 Go to the EC2 service in the AWS Management Console.
 Launch two Linux-based EC2 instances (e.g., Amazon Linux 2) and place them in different availability zones within the same VPC.
 Assign each instance a security group that allows NFS access on port 2049.
 
-Step 2: Set Up Security Group for EFS
+## Step 2:Set Up Security Group for EFS
+
 Create or configure a security group that allows inbound NFS traffic on port 2049 from the security group of both EC2 instances.
 Attach this security group to the EFS file system to permit access from both instances.
 
-Step 3: Create an EFS File System
+## Step 3: Create an EFS File System
+
 In the AWS Console, navigate to the EFS service and select Create file system.
 Select the same VPC as your EC2 instances and configure mount targets in the availability zones where your instances are located.
 Complete the setup and take note of the file system ID (e.g., fs-064645ac116a12816).
 
-Step 4: Configure EC2 Instances to Access EFS
-Instance 1
+## Step 4: Configure EC2 Instances to Access EFS
+
+## Instance 1
 SSH into the first EC2 instance.
 Switch to superuser
 Install the HTTP server and EFS utilities
 Mount the EFS file system to the web server's root directory
 Navigate to the mounted directory and create a sample file:
 
-Instance 2
+## Instance 2
 SSH into the second EC2 instance.
 Switch to superuser
 Install the HTTP server and EFS utilities
